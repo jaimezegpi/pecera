@@ -1,5 +1,5 @@
 <?php
-$fishs = json_decode(file_get_contents('data.json'));
+$fishs = json_decode( file_get_contents('data.json') );
 $debug = array();
 /*
 $fishs = array();
@@ -13,7 +13,6 @@ $nfishs = count($fishs);
 $select_victim = rand(0,($nfishs-1));
 $select_target = $select_victim;
 while ( $select_target == $select_victim ) {
-	
 	$select_target = rand(0,($nfishs-1));
 }
 
@@ -36,4 +35,8 @@ array_push($debug, 'Monedero Víctima '.$victim_points);
 array_push($debug, 'Víctima Perdida -'.$victim_points_minus);
 array_push($debug, 'Beneficiario -'.$fishs[$select_target]->name);
 
-var_dump($debug);
+$texto_salida = '
+Ho! '.$fishs[$select_target]->name.' ha golpeado a '.$fishs[$select_victim]->name.' y le ha robado $'.$victim_points_minus.' piticlines
+';
+
+var_dump($texto_salida);
